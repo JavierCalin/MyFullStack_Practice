@@ -2,6 +2,13 @@ const express = require("express");
 const morgan = require ("morgan");
 const app = express();
 
+//settings
+app.set("appName", "Mi Proyecto FS");
+console.log("nombre d ela app es:"+app.get("appName"));
+app.set("views", __dirname+"/views");
+console.log(__dirname+"/views");
+app.set("view engine", "ejs");
+
 //midelware
   //mi middelware
   app.use((req,res,next)=>{
@@ -13,13 +20,13 @@ const app = express();
 
 //enrutamiento
 app.get('/',(req,res)=>{
-  res.end("hello world");
+  res.render("index.ejs");
 });
 app.get('/canarias',(req,res)=>{
-  res.end("aqui va la pagina de hoteles en canarias");
+  res.render("canarias.ejs");
 });
 app.get('/hotel1canarias',(req,res)=>{
-  res.end("aqui va la pagina del hotel1 de canariias");
+  res.render("hotelcanario.ejs");
 });
 app.get('*',(req,res)=>{
   res.end("archivo no encontrado");
