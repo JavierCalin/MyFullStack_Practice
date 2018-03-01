@@ -20,13 +20,13 @@ app.set("view engine", "ejs");
 
 //enrutamiento
 app.get('/',(req,res)=>{
-  res.render("index.ejs");
+  res.render("index.ejs", {title:"Hola"});
 });
 app.get('/canarias',(req,res)=>{
-  res.render("canarias.ejs");
+  res.render("canarias.ejs", {title:"Hola"});
 });
 app.get('/hotel1canarias',(req,res)=>{
-  res.render("hotelcanario.ejs");
+  res.render("hotelcanario.ejs", {title:"Hola"});
 });
 app.get('*',(req,res)=>{
   res.end("archivo no encontrado");
