@@ -1,11 +1,15 @@
 const express = require("express");
+const morgan = require ("morgan");
 const app = express();
 
 //midelware
-app.use((req,res,next)=>{
-  console.log("esta es la url de la ruta"+req.url);
-  next();
-});
+  //mi middelware
+  app.use((req,res,next)=>{
+    console.log("esta es la url de la ruta"+req.url);
+    next();
+  });
+  //morgan middelware
+  app.use(morgan('combined'));
 
 //enrutamiento
 app.get('/',(req,res)=>{
